@@ -39,7 +39,8 @@ def make():
             for file in files:
                 num = file.find('.')
                 content += f"""[{file[0:num]}]({link}/SWEA/{level}/{file}), """
-            content += """ |\n\n"""
+            content += """ |\n"""
+        content += """\n"""
     
     # 2. BOJ
     content += """### 2️⃣ BOJ\n"""
@@ -54,7 +55,8 @@ def make():
             for file in files:
                 num = file.find('.')
                 content += f"""[{file[0:num]}]({link}/백준/{level}/{file}), """
-            content += """ |\n\n"""
+            content += """ |\n"""
+        content += """\n"""
 
     # Write README.md
     with open(localDir + '/README.md', 'w', encoding='UTF8') as readme:
@@ -62,7 +64,7 @@ def make():
 
 def pushRepo():
     print('...push')
-    repo.index.add('**')
+    repo.index.add('README.md')
     repo.index.commit('Update README.md')
     repo.remotes.origin.push()
 
