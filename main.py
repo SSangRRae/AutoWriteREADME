@@ -14,10 +14,11 @@ def write(category):
     addr = github.localDir + f'/{category}/'
 
     if os.path.isdir(addr):
+        content += """\n<br/>\n\n"""
         content += f"""### {numbers[count]} {category}\n"""
         count += 1
 
-        content += """| Level | Number |\n| :------: | :------: |\n"""
+        content += """| Level | Number |\n| :------: | ------ |\n"""
         levels = os.listdir(addr)
 
         for level in levels:
@@ -27,7 +28,6 @@ def write(category):
                 num = file.find('.')
                 content += f"""[{file[0:num]}]({github.link}/{category}/{level}/{file}), """
             content += """ |\n"""
-        content += """\n"""
 
 def main():
     github.pull()
