@@ -3,7 +3,7 @@ from datetime import datetime
 import github
 
 now = datetime.now()
-categories = ['SWEA', '백준', '프로그래머스']
+categories = ['백준', 'SWEA', '프로그래머스']
 numbers = ['1️⃣', '2️⃣', '3️⃣']
 content = f"""# {github.repository}\n<p align="right"> 최종업로드: {now.strftime('%Y-%m-%d %H:%M:%S')} </p>\n\n"""
 count = 0
