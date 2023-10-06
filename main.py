@@ -30,10 +30,15 @@ def write(category):
             content += """ |\n"""
 
 def main():
+    global content
+    
     github.pull()
     
     for category in categories: write(category)
-   
+    
+    # Write footer
+    content += """\n<br/>\n\n --- \n\n <p align="right"> made by: https://github.com/SSangRRae/AutoWriteREADME</p>"""
+    
     # Write README.md
     with open(github.localDir + '/README.md', 'w', encoding='UTF8') as readme:
         readme.write(content)
